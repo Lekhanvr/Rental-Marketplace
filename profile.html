@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html">Browse</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html" class="active">Profile</a>
+            <a href="#" class="btn btn-outline" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Your Profile</h2>
+            <p>Manage your account information and preferences.</p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3>Personal Information</h3>
+                <form id="profileForm" onsubmit="updateProfile(event)">
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhone">Phone</label>
+                        <input type="tel" id="profilePhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileCollege">College</label>
+                        <input type="text" id="profileCollege" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Account Stats</h3>
+                <div class="stat-card">
+                    <span class="stat-label">Member since</span>
+                    <span class="stat-number" id="memberSince">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Items listed</span>
+                    <span class="stat-number" id="itemsListed">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Successful rentals</span>
+                    <span class="stat-number" id="successfulRentals">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Average rating</span>
+                    <span class="stat-number" id="averageRating">0.0★</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare</span>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

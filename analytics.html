@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html">Browse</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="analytics.html" class="active">Analytics</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" class="btn btn-outline" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Your Analytics</h2>
+            <p>Track your earnings, popular items, and rental performance.</p>
+        </div>
+
+        <div class="analytics-grid">
+            <div class="analytics-card">
+                <span class="analytics-number" id="totalEarnings">₹0</span>
+                <span class="analytics-label">Total Earnings</span>
+            </div>
+            <div class="analytics-card">
+                <span class="analytics-number" id="totalRentals">0</span>
+                <span class="analytics-label">Completed Rentals</span>
+            </div>
+            <div class="analytics-card">
+                <span class="analytics-number" id="avgRating">0.0</span>
+                <span class="analytics-label">Average Rating</span>
+            </div>
+            <div class="analytics-card">
+                <span class="analytics-number" id="activeItems">0</span>
+                <span class="analytics-label">Active Listings</span>
+            </div>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3>Popular Items</h3>
+                <div id="popularItems">
+                    <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No data available yet.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Recent Activity</h3>
+                <div id="recentActivity">
+                    <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No recent activity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare</span>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/analytics.js"></script>
+</body>
+</html>

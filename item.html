@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Details | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html" class="active">Browse</a>
+            <a href="dashboard.html" id="dashboardLink">Dashboard</a>
+            <a href="messages.html" id="messagesLink" style="display:none;">
+                Messages
+                <span class="notification-badge" style="display: none;">0</span>
+            </a>
+            <a href="notifications.html" id="notificationsLink" style="display:none;">
+                Notifications
+                <span class="notification-badge" style="display: none;">0</span>
+            </a>
+            <a href="profile.html" id="profileLink" style="display:none;">Profile</a>
+            <a href="login.html" class="btn btn-outline" id="loginLink">Login</a>
+            <a href="signup.html" class="btn btn-primary" id="signupLink">Sign Up</a>
+            <a href="#" class="btn btn-outline" id="logoutLink" style="display:none;" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container grid grid-2 item-layout">
+        <!-- Left: Item info -->
+        <div class="card item-main" id="itemDetails">
+            <p style="text-align: center; color: var(--text-muted); padding: 3rem;">Loading item details...</p>
+        </div>
+
+        <!-- Right: Borrow form + policies -->
+        <div class="item-sidebar">
+            <div class="card" id="rentalForm">
+                <h2>Request this item</h2>
+                <form class="form" onsubmit="createRentalRequest(event)">
+                    <div class="form-group">
+                        <label for="from-date">From date</label>
+                        <input type="date" id="from-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="to-date">To date</label>
+                        <input type="date" id="to-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message to lender</label>
+                        <textarea id="message" rows="3" placeholder="Hi, I need this for my studies. I'll take good care of it!"></textarea>
+                    </div>
+                    <div class="form-summary" id="costSummary">
+                        <div class="summary-row">
+                            <span>Estimated rental</span>
+                            <span id="rentalCost">₹0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Security deposit</span>
+                            <span id="depositCost">₹0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total due at pickup</span>
+                            <span id="totalCost">₹0</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Send borrow request</button>
+                    <p class="form-note">Your request must be approved by the lender before the booking is confirmed.</p>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Security & dispute policy</h3>
+                <ul class="bullet-list small">
+                    <li>Deposit is fully refundable if the item is returned in agreed condition.</li>
+                    <li>If there is damage or loss, the lender can raise a dispute.</li>
+                    <li>Both parties can submit photos and comments during a dispute.</li>
+                    <li>College admin / coordinator can view dispute history from the dashboard.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare</span>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/item.js"></script>
+</body>
+</html>

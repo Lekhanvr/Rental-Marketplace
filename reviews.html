@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html">Browse</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="reviews.html" class="active">Reviews</a>
+            <a href="profile.html" id="profileLink">Profile</a>
+            <a href="#" class="btn btn-outline" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Reviews & Ratings</h2>
+            <p>Rate your rental experiences and view feedback from others.</p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3>Pending Reviews</h3>
+                <div id="pendingReviews">
+                    <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No pending reviews.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Your Reviews</h3>
+                <div id="yourReviews">
+                    <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No reviews yet.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Modal -->
+        <div id="reviewModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h3>Write Review</h3>
+                <form onsubmit="submitReview(event)">
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <div class="star-rating">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewText">Review</label>
+                        <textarea id="reviewText" rows="4" placeholder="Share your experience..."></textarea>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                        <button type="button" class="btn btn-outline" onclick="closeReviewModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare</span>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/reviews.js"></script>
+</body>
+</html>

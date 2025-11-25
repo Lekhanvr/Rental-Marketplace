@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmation | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html">Browse</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="messages.html">Messages</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" class="btn btn-outline" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Booking Confirmation</h2>
+            <p>Review your booking details and confirm.</p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3>Booking Summary</h3>
+                <div id="bookingSummary">
+                    <p style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading booking details...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Payment Method</h3>
+                <div class="payment-method-cod">
+                    <div class="cod-info">
+                        <div class="cod-icon">💵</div>
+                        <div>
+                            <h4>Cash on Delivery</h4>
+                            <p>Pay when you collect the item</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-summary">
+                    <div class="summary-row">
+                        <span>Rental Amount</span>
+                        <span id="rentalAmount">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Security Deposit</span>
+                        <span id="depositAmount">₹0</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total (Cash on Delivery)</span>
+                        <span id="totalAmount">₹0</span>
+                    </div>
+                </div>
+
+                <button id="confirmButton" class="btn btn-primary btn-full" onclick="confirmBooking()">
+                    Confirm Booking
+                </button>
+                
+                <div class="cod-note">
+                    <h4>📋 Important Notes:</h4>
+                    <ul>
+                        <li>Bring exact cash amount during pickup</li>
+                        <li>Security deposit will be returned after item return</li>
+                        <li>Contact lender for pickup location & time</li>
+                        <li>Inspect item before making payment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare</span>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

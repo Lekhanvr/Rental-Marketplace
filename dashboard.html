@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html">Browse</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="messages.html" id="messagesLink" style="display:none;">
+                Messages
+                <span id="messageBadge" class="notification-badge" style="display: none;">0</span>
+            </a>
+            <a href="notifications.html" id="notificationsLink" style="display:none;">
+                Notifications
+                <span id="notificationBadge" class="notification-badge" style="display: none;">0</span>
+            </a>
+            <a href="profile.html" id="profileLink" style="display:none;">Profile</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+            <a href="#" class="btn btn-outline" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container">
+        <div class="section-header section-header-row">
+            <div>
+                <h2 id="welcomeMessage">Welcome to CampusShare</h2>
+                <p>Manage your listings, approve requests, and resolve disputes.</p>
+            </div>
+            <button class="btn btn-primary" onclick="showAddItemForm()">+ New Listing</button>
+        </div>
+
+        <!-- Add Item Form (Hidden by default) -->
+        <div id="addItemForm" class="card" style="display:none; margin-bottom: 2rem;">
+            <h3>List New Item</h3>
+            <form onsubmit="addItem(event)" class="form">
+                <div class="form-group">
+                    <label for="itemTitle">Title</label>
+                    <input type="text" id="itemTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemCategory">Category</label>
+                    <select id="itemCategory" required>
+                        <option value="">Select category</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">Description</label>
+                    <textarea id="itemDescription" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">Price per day (₹)</label>
+                    <input type="number" id="itemPrice" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemDeposit">Deposit amount (₹)</label>
+                    <input type="number" id="itemDeposit" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemLocation">Pickup location</label>
+                    <input type="text" id="itemLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemImage">Item Image</label>
+                    <input type="file" id="itemImage" accept="image/*" required>
+                    <div id="imagePreview" style="margin-top: 0.5rem;"></div>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                    <button type="button" class="btn btn-outline" onclick="hideAddItemForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="grid grid-3 dashboard-stats" id="dashboardStats">
+            <div class="card stat-card">
+                <span class="stat-label">Active listings</span>
+                <span class="stat-number" id="activeListings">0</span>
+                <span class="stat-extra">Items you're lending</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">Pending requests</span>
+                <span class="stat-number" id="pendingRequests">0</span>
+                <span class="stat-extra">Awaiting your response</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">Your rentals</span>
+                <span class="stat-number" id="yourRentals">0</span>
+                <span class="stat-extra">Items you've borrowed</span>
+            </div>
+        </div>
+
+        <div class="grid grid-2 dashboard-layout">
+            <!-- Left: My listings & requests -->
+            <div class="dashboard-column">
+                <div class="card">
+                    <div class="card-header-inline">
+                        <h3>My listings</h3>
+                        <span class="pill pill-soft">Lender view</span>
+                    </div>
+                    <div id="myListings">
+                        <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No items listed yet. Click "+ New Listing" to get started!</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header-inline">
+                        <h3>Rental requests</h3>
+                        <span class="pill pill-soft">For your items</span>
+                    </div>
+                    <div id="rentalRequests">
+                        <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No rental requests yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Rentals & Activity -->
+            <div class="dashboard-column">
+                <div class="card">
+                    <div class="card-header-inline">
+                        <h3>Your rentals</h3>
+                        <span class="pill pill-soft">Items you borrowed</span>
+                    </div>
+                    <div id="yourRentalsSection">
+                        <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No rentals yet.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header-inline">
+                        <h3>Recent activity</h3>
+                    </div>
+                    <div id="recentActivity">
+                        <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No recent activity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare</span>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/debug.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html">Browse</a>
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </nav>
+    </div>
+</header>
+
+<main class="auth-container">
+    <div class="auth-card">
+        <h2>Join CampusShare</h2>
+        <form id="signupForm" onsubmit="handleSignup(event)">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="college">College</label>
+                <input type="text" id="college" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

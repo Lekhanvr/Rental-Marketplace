@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse Listings | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html" class="active">Browse</a>
+            <a href="dashboard.html" id="dashboardLink">Dashboard</a>
+            <a href="messages.html" id="messagesLink" style="display:none;">
+                Messages
+                <span class="notification-badge" style="display: none;">0</span>
+            </a>
+            <a href="notifications.html" id="notificationsLink" style="display:none;">
+                Notifications
+                <span class="notification-badge" style="display: none;">0</span>
+            </a>
+            <a href="profile.html" id="profileLink" style="display:none;">Profile</a>
+            <a href="login.html" class="btn btn-outline" id="loginLink">Login</a>
+            <a href="signup.html" class="btn btn-primary" id="signupLink">Sign Up</a>
+            <a href="#" class="btn btn-outline" id="logoutLink" style="display:none;" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container">
+        <div class="section-header section-header-row">
+            <div>
+                <h2>Available items</h2>
+                <p>Filter by category and choose items with a suitable security deposit.</p>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search items..." class="search-input">
+                <button onclick="searchItems()" class="btn btn-primary btn-sm">Search</button>
+            </div>
+        </div>
+        
+        <div class="tags" id="categoryTags">
+            <span class="tag active" onclick="filterByCategory('all')">All</span>
+            <span class="tag" onclick="filterByCategory('Books')">Books</span>
+            <span class="tag" onclick="filterByCategory('Tools')">Tools</span>
+            <span class="tag" onclick="filterByCategory('Costumes')">Costumes</span>
+            <span class="tag" onclick="filterByCategory('Others')">Others</span>
+        </div>
+
+        <div class="filter-bar card">
+            <div class="filter-group">
+                <label>Sort by</label>
+                <select id="sortBy" onchange="applyFilters()">
+                    <option value="recent">Recently added</option>
+                    <option value="price_low">Lowest price</option>
+                    <option value="deposit_low">Lowest deposit</option>
+                    <option value="price_high">Highest price</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Max deposit</label>
+                <select id="maxDeposit" onchange="applyFilters()">
+                    <option value="">No limit</option>
+                    <option value="200">₹200</option>
+                    <option value="500">₹500</option>
+                    <option value="1000">₹1000</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Max price/day</label>
+                <select id="maxPrice" onchange="applyFilters()">
+                    <option value="">Any</option>
+                    <option value="50">₹50</option>
+                    <option value="100">₹100</option>
+                    <option value="200">₹200</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Items will be loaded dynamically -->
+        <div id="itemsContainer">
+            <p style="text-align: center; color: var(--text-muted); padding: 3rem;">Loading items...</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare</span>
+        <div class="footer-links">
+            <a href="#">Support</a>
+        </div>
+    </div>
+</footer>
+<script src="js/api.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/listings.js"></script>
+</body>
+</html>

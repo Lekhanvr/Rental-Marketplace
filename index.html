@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CampusShare | Peer-to-Peer Rentals</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="listings.html">Browse</a>
+            <a href="dashboard.html" id="dashboardLink">Dashboard</a>
+            <a href="profile.html" id="profileLink" style="display:none;">Profile</a>
+            <a href="login.html" class="btn btn-outline" id="loginLink">Login</a>
+            <a href="signup.html" class="btn btn-primary" id="signupLink">Sign Up</a>
+            <a href="#" class="btn btn-outline" id="logoutLink" style="display:none;" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Rent books, tools & costumes from students near you.</h1>
+                <p>Save money, reduce waste, and build a sharing community on your campus with secure deposits and transparent ratings.</p>
+                <div class="hero-actions">
+                    <a href="listings.html" class="btn btn-primary">Browse Items</a>
+                    <a href="dashboard.html" class="btn btn-ghost">Start Lending</a>
+                </div>
+
+            </div>
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <span class="pill pill-success">Live</span>
+                    <span class="pill pill-soft">Local rentals only</span>
+                </div>
+                <h2>Available items near you</h2>
+                <div id="nearbyItems">
+                    <p style="text-align: center; color: var(--text-muted); padding: 2rem; font-size: 0.85rem;">No items available yet. Be the first to list an item!</p>
+                </div>
+                <a href="listings.html" class="hero-link">Browse all items →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse by category</h2>
+                <p>Everything you need for exams, fests, and projects.</p>
+            </div>
+            <div class="grid grid-4">
+                <a href="listings.html#books" class="category-card">
+                    <div class="category-icon circle books-bg"></div>
+                    <h3>Books</h3>
+                    <p>Textbooks, reference books, guides, and more.</p>
+                </a>
+                <a href="listings.html#tools" class="category-card">
+                    <div class="category-icon circle tools-bg"></div>
+                    <h3>Tools</h3>
+                    <p>Electronics kits, soldering irons, lab tools.</p>
+                </a>
+                <a href="listings.html#costumes" class="category-card">
+                    <div class="category-icon circle costumes-bg"></div>
+                    <h3>Costumes</h3>
+                    <p>Freshers’ day, culturals, drama events, festivals.</p>
+                </a>
+                <a href="listings.html#others" class="category-card">
+                    <div class="category-icon circle others-bg"></div>
+                    <h3>Others</h3>
+                    <p>Trip gear, sports equipment, musical instruments.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section-muted">
+        <div class="container">
+            <div class="section-header">
+                <h2>How CampusShare works</h2>
+            </div>
+            <div class="grid grid-3">
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h3>List or discover items</h3>
+                    <p>Lenders create listings with price, deposit, and availability. Borrowers search and request items.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h3>Approve & pay deposit</h3>
+                    <p>Lenders approve requests. Borrowers confirm with a security deposit and pick up on campus.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <h3>Rate & resolve issues</h3>
+                    <p>After return, both sides rate each other. Disputes can be raised through the resolution center.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="section">
+        <div class="container cta">
+            <div>
+                <h2>Turn your unused items into extra pocket money.</h2>
+                <p>List your first item in less than 2 minutes and start earning from your bookshelf, toolbox, or wardrobe.</p>
+            </div>
+            <a href="dashboard.html" class="btn btn-primary btn-lg">Go to Dashboard</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare · Peer-to-Peer Rental Marketplace</span>
+        <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Support</a>
+        </div>
+    </div>
+</footer>
+<script src="js/api.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

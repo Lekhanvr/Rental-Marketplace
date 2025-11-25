@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages | CampusShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-logo">CS</span>
+            <span class="brand-text">CampusShare</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="listings.html">Browse</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="messages.html" class="active">
+                Messages
+                <span id="messageBadge" class="notification-badge" style="display: none;">0</span>
+            </a>
+            <a href="notifications.html">Notifications</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" class="btn btn-outline" onclick="logout()">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Messages</h2>
+            <p>Chat with other users about rentals.</p>
+        </div>
+
+        <div class="chat-layout">
+            <!-- Chat List -->
+            <div class="chat-sidebar">
+                <div class="chat-search">
+                    <input type="text" placeholder="Search conversations..." class="search-input">
+                </div>
+                <div class="chat-list" id="chatList">
+                    <p style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading conversations...</p>
+                </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="chat-window">
+                <div class="chat-header" id="chatHeader" style="display: none;">
+                    <div class="chat-user-info">
+                        <div class="avatar avatar-sm" id="chatAvatar">U</div>
+                        <div>
+                            <div class="chat-user-name" id="chatUserName">Select a conversation</div>
+                            <div class="chat-user-status" id="chatUserStatus">Online</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-sm" onclick="viewUserProfile()">View Profile</button>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="empty-chat">
+                        <h3>💬 Welcome to Messages</h3>
+                        <p>Select a conversation to start chatting</p>
+                    </div>
+                </div>
+
+                <div class="chat-input-container" id="chatInputContainer" style="display: none;">
+                    <form onsubmit="sendMessage(event)" class="chat-input-form">
+                        <input type="text" id="messageInput" placeholder="Type a message..." class="message-input" required>
+                        <button type="submit" class="btn btn-primary btn-sm">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <span>© 2025 CampusShare</span>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/messages.js"></script>
+</body>
+</html>
